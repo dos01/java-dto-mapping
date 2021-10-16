@@ -14,27 +14,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/")
 public class UserController {
 
-    private UserService updateService;
+	private UserService updateService;
 
-    @Autowired
-    public UserController(UserService updateService){
-        this.updateService = updateService;
-    }
+	@Autowired
+	public UserController(UserService updateService) {
+		this.updateService = updateService;
+	}
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public DTOEntity createPost(@RequestBody UserCreateDTO userCreateDTO) {
-        return updateService.createUser(userCreateDTO);
-    }
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public DTOEntity createPost(@RequestBody UserCreateDTO userCreateDTO) {
+		return updateService.createUser(userCreateDTO);
+	}
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public DTOEntity readUser() {
-        return updateService.readUser();
-    }
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public DTOEntity readUser() {
+		return updateService.readUser();
+	}
 
-    @RequestMapping(value = "/update", method = RequestMethod.PATCH)
-    public DTOEntity updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {
+	@RequestMapping(value = "/update", method = RequestMethod.PATCH)
+	public DTOEntity updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {
 
-        return updateService.updateUser(userUpdateDTO);
-    }
+		return updateService.updateUser(userUpdateDTO);
+	}
 
 }
